@@ -28,6 +28,7 @@ psd2img requires the following software to be installed:
 
 To [install psd2img using Chocolatey](https://community.chocolatey.org/profiles/MockoFun), run the following command:
 
+```choco install psd2img```
 
 ## License
 
