@@ -1,13 +1,13 @@
 
-Note: Include this file if including binaries you have the right to distribute. 
-Otherwise delete. this file. If you are the software author, you can change this
-mention you are the author of the software.
-
-===DELETE ABOVE THIS LINE AND THIS LINE===
-
 VERIFICATION
 Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
- 
-<Include details of how to verify checksum contents>
-<If software vendor, explain that here - checksum verification instructions are optional>
+
+
+1. Go to https://github.com/codingdudecom/psd2img/blob/main/psd2img.exe to download the exe file
+
+2.  You can use one of the following methods to obtain the SHA256 checksum:
+   - Use powershell function 'Get-FileHash'
+   - Use Chocolatey utility 'checksum.exe'
+
+	checksum: A95CCD639A389C083F64B54ECEB46051B820B4E81B9F5E656920AF00D4F0EC89
