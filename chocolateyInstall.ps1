@@ -1,11 +1,24 @@
-$packageName = 'psd2img'
-$installDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$fileLocation = Join-Path $installDir "psd2img.exe"
+$packageName= 'psd2img'
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$url        = 'https://github.com/codingdudecom/psd2img/raw/main/psd2img.exe'
+$url64      = 'https://github.com/codingdudecom/psd2img/raw/main/psd2img.exe'
 
-Write-Host "Copying $packageName files..."
-Copy-Item $fileLocation -Destination "$($env:ChocolateyInstall)\lib\$($packageName)" -Force
+$packageArgs = @{
+  packageName   = $packageName
+  fileType      = 'exe'
+  url           = $url
+  url64bit      = $url64
 
-Write-Host "Creating $packageName.bat..."
-New-Item "$($env:ChocolateyInstall)\bin\$($packageName).bat" -ItemType "file" -Value "@echo off`n`" + "`"" + "$($env:ChocolateyInstall)\lib\$($packageName)\psd2img.exe`" + "`" `%*"
+  softwareName  = 'PSD2Img*'
 
-Write-Host "$packageName has been installed."
+  checksum      = 'A95CCD639A389C083F64B54ECEB46051B820B4E81B9F5E656920AF00D4F0EC89'
+  checksumType  = 'sha256'
+  checksum64    = 'A95CCD639A389C083F64B54ECEB46051B820B4E81B9F5E656920AF00D4F0EC89'
+  checksumType64= 'sha256'
+
+  silentArgs    = "/qn /norestart"
+  validExitCodes= @(0, 3010, 1641)
+}
+
+#echo @packageArgs
+Install-ChocolateyPackage @packageArgs
