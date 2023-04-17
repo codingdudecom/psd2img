@@ -33,3 +33,6 @@ To [install psd2img using Chocolatey](https://community.chocolatey.org/profiles/
 ## License
 
 psd2img is licensed under the MIT License. See [LICENSE](https://github.com/codingdudecom/psd2img/blob/main/LICENSE) for more information.
+
+
+<!-- choco push .\psd2img.1.0.0.nupkg --source https://push.chocolatey.org/ -->
