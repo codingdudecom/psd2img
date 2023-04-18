@@ -3,6 +3,9 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url        = 'https://github.com/codingdudecom/psd2img/raw/main/psd2img.exe'
 $url64      = 'https://github.com/codingdudecom/psd2img/raw/main/psd2img.exe'
 
+$nodeModulesPath = Join-Path $toolsDir 'node_modules'
+$installPath = Join-Path $env:ProgramFiles $packageName
+
 $packageArgs = @{
   packageName   = $packageName
   fileType      = 'exe'
@@ -20,5 +23,6 @@ $packageArgs = @{
   validExitCodes= @(0, 3010, 1641)
 }
 
-#echo @packageArgs
-Install-ChocolateyPackage @packageArgs
+Copy-Item "$nodeModulesPath\*" "$installPath\node_modules" -Recurse
+
+#Install-ChocolateyPackage @packageArgs
